@@ -1,6 +1,6 @@
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer odin -Port 443 -User administrator@vsphere.local -Password Aztr@2018
+Connect-VIServer 'servername' -Port 'portnumber' -User xxx -Password xxx
 
 $CurrentDate = Get-Date
 $CurrentDate = $CurrentDate.ToString('MM-dd-yyyy_hh-mm-ss')
