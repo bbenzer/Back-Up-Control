@@ -4,4 +4,4 @@ option confirm off
 open sftp://username:password@serverip 
 lcd "C:\Users\txtfilepath"
 put -nopermissions -nopreservetime "C:\Users\exportedfilepath"
-exit
+exit 
