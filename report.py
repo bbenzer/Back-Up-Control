@@ -36,10 +36,19 @@ df1 = pandas.read_csv(r"/root/script/backupcheck/backup2.txt", sep = ';', header
 df1.columns = ["Hostname","Backup Start Date","Backup End Date","Backup Complete Time"]
 df2 = pandas.read_csv(r"/root/script/backupcheck/unknown.list", header = None, encoding = "UTF-8")
 df2.columns = ["Hostname"]
+df3 = pandas.read_csv(r"/root/script/backupcheck/priv.out", sep = ';', header = None, encoding = "UTF-8")
+df3.columns = ["Hostname", "User", "Description"]
+df4 = pandas.read_csv(r"/root/script/backupcheck/security.out", sep = ';', header = None, encoding = "UTF-8")
+df4.columns = ["Security Check"]
+df5 = pandas.read_csv(r"/tmp/ntp.check",  header = None, encoding = "UTF-8")
+df5.columns = ["Ntp Check"]
 
 writer = pandas.ExcelWriter('/root/workbookname.xlsx')
 df1.to_excel(writer, 'Completed Backup List')
 df2.to_excel(writer, 'Uncompleted Backup List')
+df3.to_excel(writer, 'Privilidge Check')
+df4.to_excel(writer, 'Security Check')
+df5.to_excel(writer, 'Ntp Check')
 
 writer.save()
 
